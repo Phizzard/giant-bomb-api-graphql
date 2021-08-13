@@ -16,7 +16,7 @@ const typeDefs = gql`
     hosts: String
     video_type: String
     video_show: VideoShow
-    #video_categories: []
+    video_categories: [VideoCategory]
     saved_time: String
     youtube_id: String
     low_url: String
@@ -30,9 +30,16 @@ const typeDefs = gql`
     image: Image
   }
 
+  type VideoSteam {
+    title: String
+    image: Image
+    steam: String
+  }
+
   type Query {
     videos: [Video]
     video(id: ID!): Video
+    currentLive: VideoSteam
   }
 `;
 

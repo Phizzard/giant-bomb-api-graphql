@@ -12,6 +12,11 @@ class VideosAPI extends RESTDataSource {
     request.params.set("format", "json");
   }
 
+  async getCurrentLiveVideo() {
+    const data = await this.get(`video/current-live`);
+    return data.video;
+  }
+
   async getVideo(guid) {
     const data = await this.get(`video/${guid}`);
     return data.results;
